@@ -1,0 +1,10 @@
+{
+  "name": "zdm-monitor",
+  "version": "1.0.0",
+  "description": "值得买精选好价监控",
+  "main": "api/zdm.js",
+  "dependencies": {
+    "got": "^11.8.6",
+    "@upstash/redis": "^1.28.0"
+  }
+}

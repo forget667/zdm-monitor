@@ -206,7 +206,7 @@ module.exports = async (req, res) => {
         
         console.log('📡 请求值得买 API...');
         const response = await got.get(NEW_URL, {
-            timeout: 10000,
+            timeout: 30000,
             retry: { limit: 2 }
         });
         

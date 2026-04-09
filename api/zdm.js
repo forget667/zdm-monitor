@@ -252,7 +252,7 @@ module.exports = async (req, res) => {
 🏪 购买平台：{商城}
 🏷️ 品牌：{品牌}
 <img src="{图片}" style="max-width:100%; border-radius:8px;" referrerpolicy="no-referrer">
-<a href="{链接}" target="_blank" style="background-color:#07c; color:white; padding:8px 16px; text-decoration:none; border-radius:5px;">打开商品链接（点击跳转值得买原文购买）</a>
+<a href="{链接}" target="_blank" style="background-color:#317f6f; color:white; padding:8px 16px; text-decoration:none; border-radius:5px;">打开商品链接（点击跳转值得买原文购买）</a>
 
 ---
 

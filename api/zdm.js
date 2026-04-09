@@ -233,36 +233,38 @@ module.exports = async (req, res) => {
         
         console.log(`📋 新数据 ${newItems.length} 条，被筛选过滤 ${filteredCount} 条`);
         
-        // 推送
+        // ============== 主函数中的推送部分 ==============
         let pushSuccess = 0;
         let pushFailed = 0;
-        
-        for (const item of newItems) {
-            item.url = DOMIN + item.url;
-            
-            // 推送标题：【价格元】标题
-            const title = tuisong_replace("【{价格}元】{标题}", item);
-            
-            // 推送内容：详细信息
-            const content = tuisong_replace(`购买地址：{链接}
 
-分类：{类目}
-到手价：{价格}元
-购买平台：{商城}
-品牌：{品牌}`, item);
-            
-            const success = await pushPlusNotify(title, content);
-            if (success) {
-                pushSuccess++;
-            } else {
-                pushFailed++;
+        for (const item of newItems) {
+            // 修复链接：只有相对路径才添加域名
+            if (item.url && !item.url.startsWith('http')) {
+            item.url = DOMIN + item.url;
             }
-            
-            console.log(`📢 推送: ${item.title.substring(0, 50)}...`);
-            console.log(`   价格: ${item.price}元 | 商城: ${item.mall_name}`);
-            
-            await new Promise(r => setTimeout(r, 500));
-        }
+    
+    const title = tuisong_replace("【{价格}元】{标题}", item);
+    
+    // 使用 HTML 格式，链接可点击
+    const content = tuisong_replace(`🔗 <a href="{链接}">点击查看商品详情</a><br><br>
+📦 分类：{类目}<br>
+💰 到手价：{价格}元<br>
+🏪 购买平台：{商城}<br>
+🏷️ 品牌：{品牌}<br>
+<br>
+📎 直达链接：<a href="{链接}">{链接}</a>`, item);
+    
+    const success = await pushPlusNotify(title, content);
+    if (success) {
+        pushSuccess++;
+    } else {
+        pushFailed++;
+    }
+    
+    console.log(`📢 推送: ${item.title.substring(0, 50)}...`);
+    await new Promise(r => setTimeout(r, 500));
+}
+
         
         const duration = Date.now() - startTime;
         console.log(`✅ 执行完成，耗时 ${duration}ms，成功 ${pushSuccess} 条，失败 ${pushFailed} 条`);

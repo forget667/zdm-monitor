@@ -252,7 +252,11 @@ module.exports = async (req, res) => {
 🏪 购买平台：{商城}<br>
 🏷️ 品牌：{品牌}<br>
 <br>
-📎 直达链接：<a href="{链接}">{链接}</a>`, item);
+<img src="{图片}" style="max-width:100%; border-radius:8px;" referrerpolicy="no-referrer"><br>
+<br>
+<a href="{链接}" target="_blank" style="background-color:#07c; color:white; padding:8px 16px; text-decoration:none; border-radius:5px;">打开商品链接</a>
+<br>
+🌟来自cron-job.org定时任务 By Github Forget667🌟`, item);
     
     const success = await pushPlusNotify(title, content);
     if (success) {

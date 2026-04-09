@@ -246,13 +246,13 @@ module.exports = async (req, res) => {
     const title = tuisong_replace("【{价格}元】{标题}", item);
     
     // 使用 HTML 格式，链接可点击
-    const content = tuisong_replace(`🔗 <a href="{链接}">点击查看商品详情</a><br><br>
-📦 分类：{类目}<br>
-💰 到手价：{价格}元<br>
-🏪 购买平台：{商城}<br>
-🏷️ 品牌：{品牌}<br>
+    const content = tuisong_replace(`<br>
+📦 分类：{类目}
+💰 到手价：{价格}元
+🏪 购买平台：{商城}
+🏷️ 品牌：{品牌}
 <br>
-<img src="{图片}" style="max-width:100%; border-radius:8px;" referrerpolicy="no-referrer"><br>
+<img src="{图片}" style="max-width:100%; border-radius:8px;" referrerpolicy="no-referrer">
 <br>
 <a href="{链接}" target="_blank" style="background-color:#07c; color:white; padding:8px 16px; text-decoration:none; border-radius:5px;">打开商品链接</a>
 <br>

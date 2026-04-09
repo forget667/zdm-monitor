@@ -246,17 +246,15 @@ module.exports = async (req, res) => {
     const title = tuisong_replace("【{价格}元】{标题}", item);
     
     // 使用 HTML 格式，链接可点击
-    const content = tuisong_replace(`<br>
+    const content = tuisong_replace(`
 📦 分类：{类目}
 💰 到手价：{价格}元
 🏪 购买平台：{商城}
 🏷️ 品牌：{品牌}
-<br>
 <img src="{图片}" style="max-width:100%; border-radius:8px;" referrerpolicy="no-referrer">
-<br>
-<a href="{链接}" target="_blank" style="background-color:#07c; color:white; padding:8px 16px; text-decoration:none; border-radius:5px;">打开商品链接</a>
-<br>
-🌟来自cron-job.org定时任务 By Github Forget667🌟`, item);
+<a href="{链接}" target="_blank" style="background-color:#07c; color:white; padding:8px 16px; text-decoration:none; border-radius:5px;">打开商品链接（点击跳转值得买原文购买）</a>
+🌟来自cron-job.org定时任务 Github Forget667
+🌟由Vercel部署 Upstash提供可持续化存储`, item);
     
     const success = await pushPlusNotify(title, content);
     if (success) {

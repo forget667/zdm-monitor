@@ -15,7 +15,7 @@ const redis = Redis.fromEnv();
 //自己复制新链接打开，http://new.xianbao.fun 或 http://news.xianbao.fun
 //无法打开时可以使用这个：http://new.ixbk.net 或 http://news.ixbk.net
 //无法使用也可以可以使用这个：http://new.ixbk.fun 或 http://news.ixbk.fun
-const DOMIN = 'http://news.ixbk.net';
+const DOMIN = 'http://news.xianbao.fun';
 const NEW_URL = DOMIN + '/plus/json/push_19.json';
 
 // ============== 值得买筛选规则 ==============

@@ -29,7 +29,7 @@ const NEW_URL = DOMIN + '/plus/json/push_19.json';
 const zdm_config = {
     "rule1": {
         "Status": 1,
-        "title_gjc": "希捷|酷玩|Crucial|铠侠|臭宝|李子柒|好欢螺|川南|老干妈|轻酪乳|K90|水卫士|电子相框|优能肌活",
+        "title_gjc": "博乐纯|清朗一日|欧舒适|清氧清|欧柯视|南星|五常|花生油|吉列|水次元",
         "title_pbc": "轮胎|舒客|猫人|心相印|肖战",
         "Miprice": "",
         "Mxprice": ""
